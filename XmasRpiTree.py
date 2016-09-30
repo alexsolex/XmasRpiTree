@@ -146,17 +146,16 @@ if __name__ == '__main__':
                           languages = config.FilterLanguages)
             print("Filtering stopped")
         except ex.RequestException as err:
-            print("Erreur de connexion internet !")
+            print("Internet Connexion error !")
             print(err)
-            print("nouvelle tentative dans %s sec" % time_retry)
+            print("Waiting %s seconds before retrying..." % time_retry)
             time.sleep(time_retry)
         except KeyboardInterrupt:
-            print ("annulation par l'utilisateur. Fin du script")
+            print ("User interruption. Closing app !")
             ok = False
-        except Exception as err:
-            print("autre erreur non gérée... Sortie !")
+        except:
+            print("Not handled error. Leaving !")
             traceback.print_exc()
-
             ok = False
             
     print("Bye Bye")

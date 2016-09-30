@@ -6,11 +6,12 @@
 PIN_BUTTON = 16 #GPIO23
 
 #format : a list of dictionnary with "id" and "name" as keys where "id"(int) is the pin_number, and "name"(string) is a name (not really used yet) for the light
-GPIO_pins = [ { "id"    : 11, "name"  : 'light name'},  #a relay is connected to GPIO, using the pin number 7, the given name is 'light name'
-              { "id"    : 13, "name"  : 'light name2'}, #a relay is connected to GPIO, using the pin number 7, the given name is 'light name2'
-              { "id"    : 15, "name"  : 'light name3'}, #a relay is connected to GPIO, using the pin number 7, the given name is 'light name'
-              { "id"    : 18, "name"  : 'light name4'}  #a relay is connected to GPIO, using the pin number 7, the given name is 'light name'
-              ]
+GPIO_pins = [
+    { "id"    : 11, "name"  : 'light name'},  #a relay is connected to GPIO, using the pin number 7, the given name is 'light name'
+    { "id"    : 13, "name"  : 'light name2'}, #a relay is connected to GPIO, using the pin number 7, the given name is 'light name2'
+    { "id"    : 15, "name"  : 'light name3'}, #a relay is connected to GPIO, using the pin number 7, the given name is 'light name3'
+    { "id"    : 18, "name"  : 'light name4'}  #a relay is connected to GPIO, using the pin number 7, the given name is 'light name4'
+    ]
 #example with 3 outputs (pin#11,13 and 15)
 #GPIO_pins = [
 #    { "id": 11, "name": "blue light" },
@@ -61,14 +62,14 @@ SEQUENCE = [ (11,0) , (13,0) , (15,0) , (18,0) ,             #---- (all off for 
 #   see https://dev.twitter.com/streaming/reference/post/statuses/filter for more informations on search
 
 #The sequence will play whenever a tweet match this Twitter search 
-#Tweets corresponding to words (space means AND, comma means OR. Each word in the list will be searched for like a OR)
+#Tweets corresponding to words (space means AND, comma means OR. Each string in the list will be searched for like a OR)
 FilterTrack = ['place ducale','placeducale','charleville mezieres','charlevillemezieres']
 
 #Tweets by user ID (see http://gettwitterid.com/ for getting specific users ids)
 #   ex: ['3362569443'] for @HackArdennes
 FilterFollow = None 
 
-#Tweets by location : http://boundingbox.klokantech.com/ 
+#Tweets by location : http://boundingbox.klokantech.com/ for drawing box
 #   (use CSV RAW format ex: [4.6034232974,49.7020447479,4.8283393979,49.8231573185] for Charleville-Mezieres)
 #   WARNING filter by location will not filter other filters like track, follow or languages
 FilterLocations = None
